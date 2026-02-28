@@ -10,13 +10,18 @@ export default function Products() {
   const { t } = useLanguage();
   const [searchParams] = useSearchParams();
   const [search, setSearch] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("All");
+  const [selectedCategory, setSelectedCategory] = useState(() => {
+    return searchParams.get("category") || "All";
+  });
   const [selectedAge, setSelectedAge] = useState<{ min: number; max: number } | null>(() => {
     const min = searchParams.get("ageMin");
     const max = searchParams.get("ageMax");
     return min && max ? { min: Number(min), max: Number(max) } : null;
   });
-  const [showFilters, setShowFilters] = useState(false);
+  const [showFilters, setShowFilters] = useState(() => {
+    // Auto-show filters if category or age is pre-selected from URL
+    return !!(searchParams.get("category") || searchParams.get("ageMin"));
+  });
 
   const filtered = useMemo(() => {
     return products.filter((p) => {

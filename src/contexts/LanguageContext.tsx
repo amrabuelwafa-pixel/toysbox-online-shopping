@@ -147,6 +147,9 @@ const translations = {
     Musical: "Musical",
     Dolls: "Dolls",
     Outdoor: "Outdoor",
+    searchByCategory: "Search by Category",
+    searchByCategoryDesc: "Browse our collection by toy category",
+    viewAllProducts: "View All Products",
 
     // Badges
     "Best Seller": "Best Seller",
@@ -364,6 +367,9 @@ const translations = {
     Musical: "موسيقي",
     Dolls: "دمى",
     Outdoor: "خارجي",
+    searchByCategory: "البحث حسب الفئة",
+    searchByCategoryDesc: "تصفح مجموعتنا حسب فئة الألعاب",
+    viewAllProducts: "عرض جميع المنتجات",
 
     // Badges
     "Best Seller": "الأكثر مبيعاً",
