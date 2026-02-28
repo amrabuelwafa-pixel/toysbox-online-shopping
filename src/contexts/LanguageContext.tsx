@@ -150,6 +150,7 @@ const translations = {
     searchByCategory: "Search by Category",
     searchByCategoryDesc: "Browse our collection by toy category",
     viewAllProducts: "View All Products",
+    categoriesPageDesc: "Browse all toy categories and find the perfect match for your child",
 
     // Badges
     "Best Seller": "Best Seller",
@@ -370,6 +371,7 @@ const translations = {
     searchByCategory: "البحث حسب الفئة",
     searchByCategoryDesc: "تصفح مجموعتنا حسب فئة الألعاب",
     viewAllProducts: "عرض جميع المنتجات",
+    categoriesPageDesc: "تصفح جميع فئات الألعاب واعثر على المناسب لطفلك",
 
     // Badges
     "Best Seller": "الأكثر مبيعاً",
