@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ToyBox Egypt - Private Access</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #9b87f5 0%, #d946ef 100%);
+      padding: 20px;
+    }
+    
+    .login-box {
+      background: white;
+      padding: 40px;
+      border-radius: 24px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+      animation: slideUp 0.5s ease-out;
+    }
+    
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .logo {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+    
+    h1 {
+      color: #1a1a1a;
+      margin-bottom: 8px;
+      font-size: 28px;
+      font-weight: 700;
+    }
+    
+    .subtitle {
+      color: #666;
+      margin-bottom: 30px;
+      font-size: 14px;
+    }
+    
+    input {
+      width: 100%;
+      padding: 16px;
+      border: 2px solid #e5e5e5;
+      border-radius: 12px;
+      font-size: 16px;
+      margin-bottom: 16px;
+      transition: border-color 0.3s;
+    }
+    
+    input:focus {
+      outline: none;
+      border-color: #9b87f5;
+    }
+    
+    button {
+      width: 100%;
+      padding: 16px;
+      background: linear-gradient(135deg, #9b87f5 0%, #d946ef 100%);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(155, 135, 245, 0.4);
+    }
+    
+    button:active {
+      transform: translateY(0);
+    }
+    
+    .error {
+      color: #ef4444;
+      margin-top: 12px;
+      font-size: 14px;
+      display: none;
+      animation: shake 0.5s;
+    }
+    
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-10px); }
+      75% { transform: translateX(10px); }
+    }
+    
+    .footer {
+      margin-top: 20px;
+      color: #999;
+      font-size: 12px;
+    }
+    
+    @media (max-width: 480px) {
+      .login-box {
+        padding: 30px 20px;
+      }
+      
+      h1 {
+        font-size: 24px;
+      }
+      
+      .logo {
+        font-size: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <div class="logo">🧸</div>
+    <h1>ToyBox Egypt</h1>
+    <p class="subtitle">Private Access - Enter Password</p>
+    
+    <form onsubmit="checkPassword(event)">
+      <input 
+        type="password" 
+        id="password" 
+        placeholder="Enter password" 
+        autocomplete="current-password"
+        required
+      />
+      <button type="submit">Access Site</button>
+    </form>
+    
+    <p class="error" id="error">❌ Incorrect password. Please try again.</p>
+    
+    <p class="footer">Authorized access only</p>
+  </div>
+
+  <script>
+    function checkPassword(event) {
+      event.preventDefault();
+      
+      const password = document.getElementById('password').value;
+      const errorElement = document.getElementById('error');
+      
+      // 🔐 CHANGE THIS PASSWORD TO YOUR OWN
+      const correctPassword = 'toybox2024';
+      
+      if (password === correctPassword) {
+        // Store authentication in session
+        sessionStorage.setItem('toybox_auth', 'true');
+        sessionStorage.setItem('toybox_auth_time', Date.now().toString());
+        
+        // Redirect to main site
+        window.location.href = '/index.html';
+      } else {
+        // Show error
+        errorElement.style.display = 'block';
+        
+        // Shake animation
+        errorElement.style.animation = 'none';
+        setTimeout(() => {
+          errorElement.style.animation = 'shake 0.5s';
+        }, 10);
+        
+        // Clear password field
+        document.getElementById('password').value = '';
+      }
+    }
+  </script>
+</body>
+</html>
