@@ -151,6 +151,9 @@ const translations = {
     searchByCategoryDesc: "Browse our collection by toy category",
     viewAllProducts: "View All Products",
     categoriesPageDesc: "Browse all toy categories and find the perfect match for your child",
+    categoriesAndAge: "Categories & Age",
+    categoriesAndAgeDesc: "Browse toys by category or age group to find the perfect match",
+    searchByAge: "Search by Age",
 
     // Badges
     "Best Seller": "Best Seller",
@@ -372,6 +375,9 @@ const translations = {
     searchByCategoryDesc: "تصفح مجموعتنا حسب فئة الألعاب",
     viewAllProducts: "عرض جميع المنتجات",
     categoriesPageDesc: "تصفح جميع فئات الألعاب واعثر على المناسب لطفلك",
+    categoriesAndAge: "الفئات والأعمار",
+    categoriesAndAgeDesc: "تصفح الألعاب حسب الفئة أو الفئة العمرية للعثور على المناسب",
+    searchByAge: "البحث حسب العمر",
 
     // Badges
     "Best Seller": "الأكثر مبيعاً",
