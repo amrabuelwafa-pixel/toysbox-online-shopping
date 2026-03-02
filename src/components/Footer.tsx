@@ -21,6 +21,8 @@ export function Footer() {
             <div className="flex flex-col gap-1.5 md:gap-2 text-xs md:text-sm">
               <Link to="/" className="hover:text-accent transition-colors">{t("home")}</Link>
               <Link to="/products" className="hover:text-accent transition-colors">{t("shopAll")}</Link>
+              <Link to="/about" className="hover:text-accent transition-colors">{t("about")}</Link>
+              <Link to="/return-policy" className="hover:text-accent transition-colors">{t("returnPolicy")}</Link>
             </div>
           </div>
           <div>

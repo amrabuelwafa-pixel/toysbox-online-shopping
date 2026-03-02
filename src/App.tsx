@@ -14,6 +14,7 @@ import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
 import Categories from "./pages/Categories";
 import About from "./pages/About";
+import ReturnPolicy from "./pages/ReturnPolicy";
 import Checkout from "./pages/Checkout";
 import Recommendations from "./pages/Recommendations";
 import Login from "./pages/Login";
@@ -94,6 +95,7 @@ const App = () => {
                       <Route path="/categories" element={<Categories />} />
                       <Route path="/recommendations" element={<Recommendations />} />
                       <Route path="/about" element={<About />} />
+                      <Route path="/return-policy" element={<ReturnPolicy />} />
                       <Route path="/login" element={<Login />} />
                       <Route path="/signup" element={<Signup />} />
                       <Route path="/account" element={<Account />} />
