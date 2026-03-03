@@ -9,6 +9,7 @@ const translations = {
     shop: "Shop",
     about: "About",
     recommendations: "Recommendations",
+    aiAssist: "AI-Assist",
 
     // Hero
     heroTag: "🎉 Unique Toys from Around the World",
@@ -260,6 +261,7 @@ const translations = {
     shop: "المتجر",
     about: "من نحن",
     recommendations: "التوصيات",
+    aiAssist: "مساعد ذكي",
 
     // Hero
     heroTag: "🎉 ألعاب مميزة من حول العالم",

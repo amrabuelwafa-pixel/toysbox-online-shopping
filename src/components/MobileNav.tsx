@@ -12,7 +12,7 @@ export function MobileNav() {
     { type: "link", path: "/", icon: Home, label: t("home") },
     { type: "link", path: "/products", icon: ShoppingBag, label: t("shop") },
     { type: "cart", icon: ShoppingCart, label: t("cart") },
-    { type: "link", path: "/recommendations", icon: Sparkles, label: t("recommendations") },
+    { type: "link", path: "/recommendations", icon: Sparkles, label: t("aiAssist") },
     { type: "link", path: "/about", icon: Info, label: t("about") },
   ];
 
