@@ -22,6 +22,7 @@ const translations = {
     // Age Categories
     shopByAge: "Shop by Age 🎂",
     shopByAgeDesc: "Find the perfect toy for every stage",
+    browseAllToys: "Browse All Toys",
 
     // Featured
     featuredToys: "Featured Toys ⭐",
@@ -274,6 +275,7 @@ const translations = {
     // Age Categories
     shopByAge: "تسوق حسب العمر 🎂",
     shopByAgeDesc: "اعثر على اللعبة المثالية لكل مرحلة",
+    browseAllToys: "تصفح جميع الألعاب",
 
     // Featured
     featuredToys: "ألعاب مميزة ⭐",
