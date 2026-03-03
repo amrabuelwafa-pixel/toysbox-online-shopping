@@ -19,7 +19,7 @@ export default function ReturnPolicy() {
 
       <div className="container mx-auto px-4 py-12 md:py-16 max-w-4xl">
         <div className="space-y-8">
-          {/* 30-Day Return */}
+          {/* 14-Day Return */}
           <div className="bg-card rounded-2xl p-6 md:p-8 shadow-card">
             <div className="flex items-start gap-4">
               <div className="w-12 h-12 rounded-xl bg-gradient-hero flex items-center justify-center flex-shrink-0">
@@ -32,6 +32,38 @@ export default function ReturnPolicy() {
                 <p className="text-muted-foreground leading-relaxed">
                   {t("returnPeriodDesc")}
                 </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Allowed Products for Return */}
+          <div className="bg-card rounded-2xl p-6 md:p-8 shadow-card border-2 border-primary/20">
+            <div className="flex items-start gap-4">
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <Package className="w-6 h-6 text-primary" />
+              </div>
+              <div>
+                <h2 className="font-display text-xl md:text-2xl font-bold mb-3">
+                  {t("allowedProducts")}
+                </h2>
+                <ul className="space-y-2 text-muted-foreground">
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary mt-1">✓</span>
+                    <span>{t("allowedProduct1")}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary mt-1">✓</span>
+                    <span>{t("allowedProduct2")}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary mt-1">✓</span>
+                    <span>{t("allowedProduct3")}</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary mt-1">✓</span>
+                    <span>{t("allowedProduct4")}</span>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
