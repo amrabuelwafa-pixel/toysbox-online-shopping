@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
-import { Search, SlidersHorizontal, X } from "lucide-react";
+import { Search, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { products, ageGroups, categories } from "@/data/products";
 import { ProductCard } from "@/components/ProductCard";
@@ -18,10 +18,8 @@ export default function Products() {
     const max = searchParams.get("ageMax");
     return min && max ? { min: Number(min), max: Number(max) } : null;
   });
-  const [showFilters, setShowFilters] = useState(() => {
-    // Auto-show filters if category or age is pre-selected from URL
-    return !!(searchParams.get("category") || searchParams.get("ageMin"));
-  });
+  const [showAgeFilter, setShowAgeFilter] = useState(false);
+  const [showCategoryFilter, setShowCategoryFilter] = useState(false);
 
   const filtered = useMemo(() => {
     return products.filter((p) => {
@@ -64,7 +62,7 @@ export default function Products() {
       </div>
 
       <div className="container mx-auto px-4 py-6 md:py-8">
-        {/* Filter Toggle */}
+        {/* Filter Buttons */}
         <div className="flex items-center justify-between mb-4 md:mb-6">
           <p className="text-muted-foreground font-body text-sm md:text-base">
             <span className="font-semibold text-foreground">{filtered.length}</span> {t("toysFound")}
@@ -76,63 +74,97 @@ export default function Products() {
               </button>
             )}
             <button
-              onClick={() => setShowFilters(!showFilters)}
-              className="flex items-center gap-2 px-3 md:px-4 py-2 rounded-xl bg-muted font-display font-semibold text-xs md:text-sm hover:bg-muted/80"
+              onClick={() => {
+                setShowAgeFilter(!showAgeFilter);
+                setShowCategoryFilter(false);
+              }}
+              className={`flex items-center gap-2 px-3 md:px-4 py-2 rounded-xl font-display font-semibold text-xs md:text-sm transition-all ${
+                selectedAge ? "bg-primary text-primary-foreground shadow-button" : "bg-muted hover:bg-muted/80"
+              }`}
             >
-              <SlidersHorizontal className="w-3 md:w-4 h-3 md:h-4" /> {t("filters")}
+              {t("searchByAge")} <ChevronDown className={`w-3 md:w-4 h-3 md:h-4 transition-transform ${showAgeFilter ? "rotate-180" : ""}`} />
+            </button>
+            <button
+              onClick={() => {
+                setShowCategoryFilter(!showCategoryFilter);
+                setShowAgeFilter(false);
+              }}
+              className={`flex items-center gap-2 px-3 md:px-4 py-2 rounded-xl font-display font-semibold text-xs md:text-sm transition-all ${
+                selectedCategory !== "All" ? "bg-secondary text-secondary-foreground shadow-button" : "bg-muted hover:bg-muted/80"
+              }`}
+            >
+              {t("searchByCategory")} <ChevronDown className={`w-3 md:w-4 h-3 md:h-4 transition-transform ${showCategoryFilter ? "rotate-180" : ""}`} />
             </button>
           </div>
         </div>
 
-        {/* Filters */}
+        {/* Age Filter Dropdown */}
         <AnimatePresence>
-          {showFilters && (
+          {showAgeFilter && (
             <motion.div
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               className="overflow-hidden mb-6"
             >
-              <div className="bg-card rounded-2xl p-4 md:p-5 shadow-card space-y-4 md:space-y-5">
-                <div>
-                  <h3 className="font-display font-semibold mb-3 text-sm md:text-base">{t("ageGroup")}</h3>
-                  <div className="flex flex-wrap gap-2">
+              <div className="bg-card rounded-2xl p-4 md:p-5 shadow-card">
+                <div className="flex flex-wrap gap-2">
+                  <button
+                    onClick={() => {
+                      setSelectedAge(null);
+                      setShowAgeFilter(false);
+                    }}
+                    className={`px-3 md:px-4 py-1.5 md:py-2 rounded-xl text-xs md:text-sm font-semibold transition-all ${
+                      !selectedAge ? "bg-primary text-primary-foreground shadow-button" : "bg-muted hover:bg-muted/80"
+                    }`}
+                  >
+                    {t("allAges")}
+                  </button>
+                  {ageGroups.map((g) => (
                     <button
-                      onClick={() => setSelectedAge(null)}
+                      key={g.label}
+                      onClick={() => {
+                        setSelectedAge({ min: g.min, max: g.max });
+                        setShowAgeFilter(false);
+                      }}
                       className={`px-3 md:px-4 py-1.5 md:py-2 rounded-xl text-xs md:text-sm font-semibold transition-all ${
-                        !selectedAge ? "bg-primary text-primary-foreground shadow-button" : "bg-muted hover:bg-muted/80"
+                        selectedAge?.min === g.min ? "bg-primary text-primary-foreground shadow-button" : "bg-muted hover:bg-muted/80"
                       }`}
                     >
-                      {t("allAges")}
+                      {g.emoji} {t(g.label as any)}
                     </button>
-                    {ageGroups.map((g) => (
-                      <button
-                        key={g.label}
-                        onClick={() => setSelectedAge({ min: g.min, max: g.max })}
-                        className={`px-3 md:px-4 py-1.5 md:py-2 rounded-xl text-xs md:text-sm font-semibold transition-all ${
-                          selectedAge?.min === g.min ? "bg-primary text-primary-foreground shadow-button" : "bg-muted hover:bg-muted/80"
-                        }`}
-                      >
-                        {g.emoji} {t(g.label as any)}
-                      </button>
-                    ))}
-                  </div>
+                  ))}
                 </div>
-                <div>
-                  <h3 className="font-display font-semibold mb-3 text-sm md:text-base">{t("category")}</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {categories.map((cat) => (
-                      <button
-                        key={cat}
-                        onClick={() => setSelectedCategory(cat)}
-                        className={`px-3 md:px-4 py-1.5 md:py-2 rounded-xl text-xs md:text-sm font-semibold transition-all ${
-                          selectedCategory === cat ? "bg-secondary text-secondary-foreground shadow-button" : "bg-muted hover:bg-muted/80"
-                        }`}
-                      >
-                        {t(cat as any)}
-                      </button>
-                    ))}
-                  </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Category Filter Dropdown */}
+        <AnimatePresence>
+          {showCategoryFilter && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              className="overflow-hidden mb-6"
+            >
+              <div className="bg-card rounded-2xl p-4 md:p-5 shadow-card">
+                <div className="flex flex-wrap gap-2">
+                  {categories.map((cat) => (
+                    <button
+                      key={cat}
+                      onClick={() => {
+                        setSelectedCategory(cat);
+                        setShowCategoryFilter(false);
+                      }}
+                      className={`px-3 md:px-4 py-1.5 md:py-2 rounded-xl text-xs md:text-sm font-semibold transition-all ${
+                        selectedCategory === cat ? "bg-secondary text-secondary-foreground shadow-button" : "bg-muted hover:bg-muted/80"
+                      }`}
+                    >
+                      {t(cat as any)}
+                    </button>
+                  ))}
                 </div>
               </div>
             </motion.div>

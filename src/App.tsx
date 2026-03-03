@@ -12,7 +12,6 @@ import { CartDrawer } from "@/components/CartDrawer";
 import Index from "./pages/Index";
 import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
-import Categories from "./pages/Categories";
 import About from "./pages/About";
 import ReturnPolicy from "./pages/ReturnPolicy";
 import Checkout from "./pages/Checkout";
@@ -92,7 +91,6 @@ const App = () => {
                       <Route path="/" element={<Index />} />
                       <Route path="/products" element={<Products />} />
                       <Route path="/product/:id" element={<ProductDetail />} />
-                      <Route path="/categories" element={<Categories />} />
                       <Route path="/recommendations" element={<Recommendations />} />
                       <Route path="/about" element={<About />} />
                       <Route path="/return-policy" element={<ReturnPolicy />} />

@@ -31,9 +31,6 @@ export function Header() {
           <Link to="/products" className="font-body font-semibold text-foreground/80 hover:text-primary transition-colors">
             {t("shop")}
           </Link>
-          <Link to="/categories" className="font-body font-semibold text-foreground/80 hover:text-primary transition-colors">
-            {t("categories")}
-          </Link>
           <Link to="/recommendations" className="font-body font-semibold text-foreground/80 hover:text-primary transition-colors">
             {t("recommendations")}
           </Link>
@@ -102,7 +99,6 @@ export function Header() {
             <nav className="flex flex-col p-4 gap-3">
               <Link to="/" onClick={() => setMobileMenuOpen(false)} className="font-body font-semibold py-2 text-foreground/80">{t("home")}</Link>
               <Link to="/products" onClick={() => setMobileMenuOpen(false)} className="font-body font-semibold py-2 text-foreground/80">{t("shop")}</Link>
-              <Link to="/categories" onClick={() => setMobileMenuOpen(false)} className="font-body font-semibold py-2 text-foreground/80">{t("categories")}</Link>
               <Link to="/recommendations" onClick={() => setMobileMenuOpen(false)} className="font-body font-semibold py-2 text-foreground/80">{t("recommendations")}</Link>
               <Link to="/about" onClick={() => setMobileMenuOpen(false)} className="font-body font-semibold py-2 text-foreground/80">{t("about")}</Link>
               {isAuthenticated ? (
