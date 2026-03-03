@@ -9,6 +9,7 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { CartDrawer } from "@/components/CartDrawer";
+import { MobileNav } from "@/components/MobileNav";
 import Index from "./pages/Index";
 import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
@@ -86,7 +87,7 @@ const App = () => {
               <CartProvider>
                 <div className="flex flex-col min-h-screen">
                   <Header />
-                  <main className="flex-1">
+                  <main className="flex-1 pb-20 md:pb-0">
                     <Routes>
                       <Route path="/" element={<Index />} />
                       <Route path="/products" element={<Products />} />
@@ -102,6 +103,7 @@ const App = () => {
                     </Routes>
                   </main>
                   <Footer />
+                  <MobileNav />
                   <CartDrawer />
                 </div>
               </CartProvider>

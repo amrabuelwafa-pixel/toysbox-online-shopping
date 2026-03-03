@@ -1,16 +1,14 @@
 import { Link } from "react-router-dom";
-import { ShoppingCart, Search, Menu, X, Globe, User } from "lucide-react";
+import { ShoppingCart, Search, Globe, User } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { useAuth } from "@/contexts/AuthContext";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 
 export function Header() {
   const { totalItems, setIsCartOpen } = useCart();
   const { isAuthenticated, user } = useAuth();
   const { t, lang, setLang } = useLanguage();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const toggleLang = () => setLang(lang === "en" ? "ar" : "en");
 
@@ -40,7 +38,7 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <Link to="/products" className="p-2 rounded-lg hover:bg-muted transition-colors">
+          <Link to="/products" className="p-2 rounded-lg hover:bg-muted transition-colors hidden md:flex">
             <Search className="w-5 h-5 text-foreground/70" />
           </Link>
           
@@ -79,37 +77,8 @@ export function Header() {
               {lang === "en" ? "AR" : "EN"}
             </span>
           </button>
-          <button
-            className="md:hidden p-2 rounded-lg hover:bg-muted transition-colors"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </button>
         </div>
       </div>
-
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="md:hidden border-t border-border overflow-hidden bg-card"
-          >
-            <nav className="flex flex-col p-4 gap-3">
-              <Link to="/" onClick={() => setMobileMenuOpen(false)} className="font-body font-semibold py-2 text-foreground/80">{t("home")}</Link>
-              <Link to="/products" onClick={() => setMobileMenuOpen(false)} className="font-body font-semibold py-2 text-foreground/80">{t("shop")}</Link>
-              <Link to="/recommendations" onClick={() => setMobileMenuOpen(false)} className="font-body font-semibold py-2 text-foreground/80">{t("recommendations")}</Link>
-              <Link to="/about" onClick={() => setMobileMenuOpen(false)} className="font-body font-semibold py-2 text-foreground/80">{t("about")}</Link>
-              {isAuthenticated ? (
-                <Link to="/account" onClick={() => setMobileMenuOpen(false)} className="font-body font-semibold py-2 text-foreground/80">{t("myAccount")}</Link>
-              ) : (
-                <Link to="/login" onClick={() => setMobileMenuOpen(false)} className="font-body font-semibold py-2 text-primary">{t("login")}</Link>
-              )}
-            </nav>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </header>
   );
 }
