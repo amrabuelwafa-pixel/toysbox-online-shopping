@@ -27,7 +27,7 @@ export function MobileNav() {
               <button
                 key="cart"
                 onClick={() => setIsCartOpen(true)}
-                className="relative flex flex-col items-center justify-center gap-1 px-4 py-2 rounded-xl transition-all text-primary bg-primary/10 -mt-2"
+                className="relative flex flex-col items-center justify-center gap-1 px-4 py-2 rounded-xl transition-all text-foreground -mt-2"
               >
                 <Icon className="w-6 h-6" />
                 {totalItems > 0 && (
