@@ -10,10 +10,10 @@ export function AgeCategories() {
       <div className="container mx-auto px-4">
         <div className="text-center">
           <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4">
-            {t("shopByAge")}
+            {t("shopByAgeAndCategory")}
           </h2>
           <p className="text-muted-foreground text-sm md:text-base max-w-2xl mx-auto mb-6 md:mb-8">
-            {t("shopByAgeDesc")}
+            {t("shopByAgeAndCategoryDesc")}
           </p>
           <Link
             to="/products"

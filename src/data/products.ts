@@ -6,6 +6,8 @@ export interface Product {
   price: number;
   originalPrice?: number;
   image: string;
+  images: string[];
+  video?: string;
   ageRange: [number, number];
   category: string;
   inStock: boolean;
@@ -21,6 +23,13 @@ export const products: Product[] = [
     price: 450,
     originalPrice: 550,
     image: "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=400&h=400&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=800",
+      "https://images.unsplash.com/photo-1558060370-d644479cb6f7?w=800",
+      "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=800",
+      "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800"
+    ],
+    video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     ageRange: [2, 5],
     category: "Building",
     inStock: true,
@@ -33,6 +42,11 @@ export const products: Product[] = [
     description: "Educational tablet with games, letters, numbers, and music for early learners.",
     price: 750,
     image: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=400&h=400&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=800",
+      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800",
+      "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800"
+    ],
     ageRange: [3, 7],
     category: "Educational",
     inStock: true,
@@ -44,6 +58,12 @@ export const products: Product[] = [
     description: "Super soft and cuddly teddy bear, perfect companion for little ones.",
     price: 320,
     image: "https://images.unsplash.com/photo-1559715541-5daf8a0296d0?w=400&h=400&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1559715541-5daf8a0296d0?w=800",
+      "https://images.unsplash.com/photo-1530325553241-4f6e7690cf36?w=800",
+      "https://images.unsplash.com/photo-1563291074-2bf8677ac0e5?w=800",
+      "https://images.unsplash.com/photo-1551361415-69c87624334f?w=800"
+    ],
     ageRange: [2, 6],
     category: "Plush",
     inStock: true,
@@ -57,6 +77,12 @@ export const products: Product[] = [
     price: 680,
     originalPrice: 800,
     image: "https://images.unsplash.com/photo-1594787318286-3d835c1d207f?w=400&h=400&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1594787318286-3d835c1d207f?w=800",
+      "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800",
+      "https://images.unsplash.com/photo-1581235720704-06d3acfcb36f?w=800"
+    ],
+    video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     ageRange: [5, 12],
     category: "Vehicles",
     inStock: true,
@@ -68,6 +94,12 @@ export const products: Product[] = [
     description: "Complete art kit with paints, brushes, paper, glitter, and stickers.",
     price: 380,
     image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=400&h=400&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=800",
+      "https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=800",
+      "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=800",
+      "https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?w=800"
+    ],
     ageRange: [4, 10],
     category: "Creative",
     inStock: true,
@@ -79,6 +111,11 @@ export const products: Product[] = [
     description: "100-piece dinosaur-themed jigsaw puzzle for young explorers.",
     price: 220,
     image: "https://images.unsplash.com/photo-1587654780291-39c9404d7dd0?w=400&h=400&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1587654780291-39c9404d7dd0?w=800",
+      "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?w=800",
+      "https://images.unsplash.com/photo-1611329532992-0b7d094e6d00?w=800"
+    ],
     ageRange: [5, 10],
     category: "Puzzles",
     inStock: true,
@@ -90,6 +127,11 @@ export const products: Product[] = [
     description: "Colorful stacking rings to develop motor skills and color recognition.",
     price: 180,
     image: "https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=400&h=400&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1545558014-8692077e9b5c?w=800",
+      "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=800",
+      "https://images.unsplash.com/photo-1558060370-d644479cb6f7?w=800"
+    ],
     ageRange: [2, 3],
     category: "Baby",
     inStock: true,
@@ -103,6 +145,13 @@ export const products: Product[] = [
     price: 890,
     originalPrice: 1050,
     image: "https://images.unsplash.com/photo-1596068587619-e4b11c7a3c36?w=400&h=400&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1596068587619-e4b11c7a3c36?w=800",
+      "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800",
+      "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=800",
+      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800"
+    ],
+    video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     ageRange: [3, 8],
     category: "Pretend Play",
     inStock: true,
@@ -115,6 +164,12 @@ export const products: Product[] = [
     description: "Build and program your own robot! Great introduction to STEM for kids.",
     price: 1200,
     image: "https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=400&h=400&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=800",
+      "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800",
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800",
+      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800"
+    ],
     ageRange: [8, 12],
     category: "STEM",
     inStock: true,
@@ -127,6 +182,11 @@ export const products: Product[] = [
     description: "Colorful xylophone with 8 notes for budding young musicians.",
     price: 250,
     image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=400&h=400&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=800",
+      "https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=800",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800"
+    ],
     ageRange: [2, 5],
     category: "Musical",
     inStock: true,
@@ -139,6 +199,12 @@ export const products: Product[] = [
     price: 1500,
     originalPrice: 1800,
     image: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&h=400&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=800",
+      "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=800",
+      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800",
+      "https://images.unsplash.com/photo-1596068587619-e4b11c7a3c36?w=800"
+    ],
     ageRange: [4, 10],
     category: "Dolls",
     inStock: true,
@@ -150,6 +216,11 @@ export const products: Product[] = [
     description: "Includes a ball, frisbee, jump rope, and badminton set for outdoor fun.",
     price: 550,
     image: "https://images.unsplash.com/photo-1472745942893-4b9f730c7668?w=400&h=400&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1472745942893-4b9f730c7668?w=800",
+      "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800",
+      "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=800"
+    ],
     ageRange: [5, 12],
     category: "Outdoor",
     inStock: true,
@@ -161,6 +232,11 @@ export const products: Product[] = [
     description: "Mess-free magnetic drawing board for endless creative fun.",
     price: 280,
     image: "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=400&h=400&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=800",
+      "https://images.unsplash.com/photo-1452860606245-08befc0ff44b?w=800",
+      "https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=800"
+    ],
     ageRange: [2, 6],
     category: "Creative",
     inStock: false,
@@ -172,6 +248,13 @@ export const products: Product[] = [
     description: "Wooden train track set with bridges, tunnels, and 3 trains.",
     price: 950,
     image: "https://images.unsplash.com/photo-1558507334-57300f59f0bd?w=400&h=400&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1558507334-57300f59f0bd?w=800",
+      "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=800",
+      "https://images.unsplash.com/photo-1558060370-d644479cb6f7?w=800",
+      "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=800"
+    ],
+    video: "https://www.youtube.com/embed/dQw4w9WgXcQ",
     ageRange: [3, 8],
     category: "Vehicles",
     inStock: true,
@@ -184,6 +267,12 @@ export const products: Product[] = [
     description: "20 safe science experiments for curious young minds. Includes all materials.",
     price: 650,
     image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=400&h=400&fit=crop",
+    images: [
+      "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800",
+      "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800",
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800",
+      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800"
+    ],
     ageRange: [7, 12],
     category: "STEM",
     inStock: true,

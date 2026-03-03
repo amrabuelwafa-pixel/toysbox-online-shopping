@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { products } from "@/data/products";
 import { useCart } from "@/contexts/CartContext";
 import { ProductCard } from "@/components/ProductCard";
+import { ProductGallery } from "@/components/ProductGallery";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function ProductDetail() {
@@ -44,9 +45,12 @@ export default function ProductDetail() {
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="aspect-square rounded-xl md:rounded-2xl overflow-hidden bg-muted"
           >
-            <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
+            <ProductGallery 
+              images={product.images} 
+              video={product.video}
+              productName={product.name}
+            />
           </motion.div>
 
           <motion.div
