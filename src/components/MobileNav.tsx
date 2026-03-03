@@ -1,29 +1,51 @@
 import { Link, useLocation } from "react-router-dom";
-import { Home, ShoppingBag, Sparkles, Info } from "lucide-react";
+import { Home, ShoppingBag, Sparkles, Info, ShoppingCart } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useCart } from "@/contexts/CartContext";
 
 export function MobileNav() {
   const location = useLocation();
   const { t } = useLanguage();
+  const { totalItems, setIsCartOpen } = useCart();
 
   const navItems = [
-    { path: "/", icon: Home, label: t("home") },
-    { path: "/products", icon: ShoppingBag, label: t("shop") },
-    { path: "/recommendations", icon: Sparkles, label: t("recommendations") },
-    { path: "/about", icon: Info, label: t("about") },
+    { type: "cart", icon: ShoppingCart, label: t("cart") },
+    { type: "link", path: "/", icon: Home, label: t("home") },
+    { type: "link", path: "/products", icon: ShoppingBag, label: t("shop") },
+    { type: "link", path: "/recommendations", icon: Sparkles, label: t("recommendations") },
+    { type: "link", path: "/about", icon: Info, label: t("about") },
   ];
 
   return (
     <nav className="md:hidden fixed bottom-0 left-0 right-0 bg-card border-t border-border z-50 safe-area-bottom">
       <div className="flex items-center justify-around px-2 py-2">
-        {navItems.map((item) => {
+        {navItems.map((item, index) => {
           const Icon = item.icon;
+          
+          if (item.type === "cart") {
+            return (
+              <button
+                key="cart"
+                onClick={() => setIsCartOpen(true)}
+                className="relative flex flex-col items-center justify-center gap-1 px-3 py-2 rounded-xl transition-all text-muted-foreground hover:text-foreground"
+              >
+                <Icon className="w-5 h-5" />
+                {totalItems > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-secondary text-secondary-foreground text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                    {totalItems}
+                  </span>
+                )}
+                <span className="text-xs font-medium">{item.label}</span>
+              </button>
+            );
+          }
+
           const isActive = location.pathname === item.path;
           
           return (
             <Link
               key={item.path}
-              to={item.path}
+              to={item.path!}
               className={`flex flex-col items-center justify-center gap-1 px-3 py-2 rounded-xl transition-all ${
                 isActive 
                   ? "text-primary bg-primary/10" 
